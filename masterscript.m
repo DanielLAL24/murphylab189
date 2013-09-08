@@ -70,7 +70,7 @@ tic
 scriptx_new  % estimate single microtubule intensity
 toc
 
-disp( 'Generate microtubule distributions')
+disp( 'Generating microtubule distributions')
 tic
 all_script_script  % generate microtubule distributions
 toc
