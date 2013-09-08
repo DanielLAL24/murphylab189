@@ -25,27 +25,27 @@
 # For additional information visit http://murphylab.web.cmu.edu or
 # send email to murphy@cmu.edu
 
-wget -nc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_A431.tar.gz
-wget -nc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_A549.tar.gz
-wget -nc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_CaCo.tar.gz
-wget -nc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_Hek293.tar.gz
-wget -nc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_HeLa.tar.gz
-wget -nc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_HepG2.tar.gz
-wget -nc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_MCF7.tar.gz
-wget -nc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_PC3.tar.gz
-wget -nc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_RT4.tar.gz
-wget -nc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_U251MG.tar.gz
-wget -nc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_U2OS.tar.gz
+wget -qnc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_A431.tar.gz
+wget -qnc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_A549.tar.gz
+wget -qnc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_CaCo.tar.gz
+wget -qnc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_Hek293.tar.gz
+wget -qnc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_HeLa.tar.gz
+wget -qnc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_HepG2.tar.gz
+wget -qnc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_MCF7.tar.gz
+wget -qnc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_PC3.tar.gz
+wget -qnc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_RT4.tar.gz
+wget -qnc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_U251MG.tar.gz
+wget -qnc http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/CellLines_rawdataHPA_U2OS.tar.gz
 
 mkdir ./images
 mv CellLines*.tar.gz ./images
 cd ./images
 
 wget -nc http://murphylab.web.cmu.edu/data/Hela/3D/3DHela_Tub.tgz
-tar -xzvf 3DHela_Tub.tgz
+tar -xf 3DHela_Tub.tgz
 
 for FILE in *rawdata*.tar.gz
 do
- tar -xzvf "$FILE"
+ tar -xzf "$FILE"
  rm -f "$FILE"
 done
