@@ -1,4 +1,4 @@
-function raw2proc_hela(cellnum, imgloc)
+function raw2proc_hela( cellnum, imgloc )
 
 %{
 protim3 = ml_loadimage(['raw/cell' num2str(cellnum) '/prot/'],'tif');
@@ -6,9 +6,14 @@ dnaim3 = ml_loadimage(['raw/cell' num2str(cellnum) '/dna/'],'tif');
 cellim3 = ml_loadimage(['raw/cell' num2str(cellnum) '/cell/'],'tif');
 mask = ml_loadimage(['raw/cell' num2str(cellnum) '/crop/'],'tif');
 %}
-if ~exist('imgloc','var') || isempty(imgloc)
+
+if ~exist( 'imgloc','var' ) || isempty( imgloc )
+   warning(['Variable imgloc points to a nonexisting folder:''' imgloc '''. Defaulting to ''/share/images/Hela'''])
    imgloc = '/share/images/Hela';
+else
+	disp(['Folder imgloc:''' imgloc ''' found.'])	
 end
+
 protim3 = ml_loadimage([imgloc '/3D/Tub/cell' num2str(cellnum) '/prot/'],'tif');
 dnaim3 = ml_loadimage([imgloc '/3D/Tub/cell' num2str(cellnum) '/dna/'],'tif');
 cellim3 = ml_loadimage([imgloc '/3D/Tub/cell' num2str(cellnum) '/cell/'],'tif');
