@@ -1,4 +1,3 @@
-clear all
 close all
 
 % this script generates the simulated images and computes the features
@@ -7,14 +6,16 @@ close all
 load HPAimagelist2.mat AddCellLines celllabels 
 
 for setno = unique(celllabels)'
+	disp(['Set number:' num2str(setno)])
 %for setno = 11
 	%imcount = 0;
 
 	%for cellnum = 1:50  %%for selecting a subset
 		%if imcount>=10 break; end  %%for selecting a subset
 
-       fieldnos = 1:sum(celllabels==setno);
+    fieldnos = 1:sum(celllabels==setno);
 	for fieldno = fieldnos
+		disp(['Field number:' num2str(fieldno)])
 		all_script(setno,fieldno);
 
 		%[flag] = all_script(setno,fieldno,cellnum);  %%for selecting a subset
