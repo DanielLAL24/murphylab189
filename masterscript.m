@@ -51,7 +51,7 @@ for Idx = celllineIdx(:)'
 if Idx == 0
 % 3D HeLa, generate microtubules and estimate model parameters using directly 3D HeLa cells
 cd HeLa3D
-raw2proc_hela_script(imgpath)  % preprocess images
+raw2proc_hela_script  % preprocess images
 auto_segment_hela_script  % segment images into cells
 process_seg_hela_script  % preprocess cells to get cell geometries (cell shapes and nuclear shapes)
 scriptx_new  % estimate single microtubule intensity
