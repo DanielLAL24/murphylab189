@@ -93,36 +93,44 @@ dnaseg(49,:) = [8 13];
 dnaseg(51,:) = [7 10];
 dnaseg(52,:) = [7 10];
 
-% Load images
-load(['proc/cell_' num2str(cellnum) '/cell' num2str(cellnum) '.mat'],'cellim3','dnaim3','protim3');
+output_filename = [ pwd filesep 'proc/cell_' num2str(cellnum) '/man_seg.mat'];
 
-% Load PSFs
-infdnaPSF = imfinfo( '3DHeLa_DNA_PSF.tif');
-infcellPSF = imfinfo( '3DHeLa_Cell_PSF.tif');
+if ~exist( output_filename )
+	% Load images
+	load([ pwd filesep 'proc/cell_' num2str(cellnum) filesep 'cell' num2str(cellnum) '.mat'],'cellim3','dnaim3','protim3');
 
-dnaPSF = zeros( infdnaPSF(1).Height, infdnaPSF(1).Width, length(infdnaPSF));
-cellPSF = zeros( infcellPSF(1).Height, infcellPSF(1).Width, length(infcellPSF));
+	% Load PSFs
+	infdnaPSF = imfinfo( '3DHeLa_DNA_PSF.tif');
+	infcellPSF = imfinfo( '3DHeLa_Cell_PSF.tif');
 
-for I=1:length(infdnaPSF)
-    dnaPSF(:,:,I)=imread('3DHeLa_DNA_PSF.tif',I);
+	dnaPSF = zeros( infdnaPSF(1).Height, infdnaPSF(1).Width, length(infdnaPSF));
+	cellPSF = zeros( infcellPSF(1).Height, infcellPSF(1).Width, length(infcellPSF));
+
+	for I=1:length(infdnaPSF)
+	    dnaPSF(:,:,I)=imread('3DHeLa_DNA_PSF.tif',I);
+	end
+	for I=1:length(infcellPSF)
+	    cellPSF(:,:,I)=imread('3DHeLa_Cell_PSF.tif',I);
+	end
+
+	dnaPSF = dnaPSF.^2; % Approximate confocal PSF
+	cellPSF = cellPSF.^2; 
+
+	dnaPSF = ml_downsize(dnaPSF,[4 4 1],'average');
+	cellPSF = ml_downsize(cellPSF,[4 4 1],'average');
+	[cell_image,cellPSF2] = deconvblind(cellim3,cellPSF);
+
+	[dna_image,dnaPSF2] = deconvblind(dnaim3,dnaPSF);
+
+	% Cell image segmentation
+	disp( 'Cell image segmentation')
+	segcell = active3Dsegment(cell_image,cellseg(cellnum,1),cellseg(cellnum,2));
+
+	disp( 'Nucleus image segmentation')
+	% Nucleus image segmentation
+	segdna = active3Dsegment(dna_image,dnaseg(cellnum,1),dnaseg(cellnum,2));
+
+	save( output_filename,'segcell','segdna','dnaim3','protim3');
+else
+	disp( 'Intermediate results found. Skipping recalculation.')
 end
-for I=1:length(infcellPSF)
-    cellPSF(:,:,I)=imread('3DHeLa_Cell_PSF.tif',I);
-end
-
-dnaPSF = dnaPSF.^2; % Approximate confocal PSF
-cellPSF = cellPSF.^2; 
-
-dnaPSF = ml_downsize(dnaPSF,[4 4 1],'average');
-cellPSF = ml_downsize(cellPSF,[4 4 1],'average');
-[cell_image,cellPSF2] = deconvblind(cellim3,cellPSF);
-
-[dna_image,dnaPSF2] = deconvblind(dnaim3,dnaPSF);
-
-% Cell image segmentation
-segcell = active3Dsegment(cell_image,cellseg(cellnum,1),cellseg(cellnum,2));
-
-% Nucleus image segmentation
-segdna = active3Dsegment(dna_image,dnaseg(cellnum,1),dnaseg(cellnum,2));
-
-save(['proc/cell_' num2str(cellnum) '/man_seg.mat'],'segcell','segdna','dnaim3','protim3');
