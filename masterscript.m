@@ -70,10 +70,25 @@ tic
 scriptx_new  % estimate single microtubule intensity
 toc
 
+disp( 'Generate microtubule distributions')
+tic
 all_script_script  % generate microtubule distributions
+toc
+
+disp( 'Extract features for generated synthetic cells')
+tic
 extract_features_script  % extract features for generated synthetic cells
+toc
+
+disp( 'Extract features for real cells')
+tic
 getallcellsfeatvec  % extract features for real cells
+toc
+
+disp( 'Estimate model parameters indirectly')
+tic
 recover_parameters_from_real_image_ownlib_script  % estimate model parameters indirectly
+toc
 cd ..
 
 

@@ -15,7 +15,6 @@ midpt = round(size(b,2)/2);
 K = 1;
 
 for idx = 1:size(b,1)
-
         m = double(b(idx,:));
         if sum(m(:))>0
                 m = m./sum(m(:));
