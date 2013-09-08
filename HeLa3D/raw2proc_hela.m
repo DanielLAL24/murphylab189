@@ -40,6 +40,7 @@ if ~exist( output_filename )
 	% Resize the image so that resolutions match in X,Y,Z
 	if ~exist( output_folder )
 		mkdir( output_folder );
+	end
 	save( output_filename );
 else
 	disp( 'Intermediate results found. Skipping recalculation.')
