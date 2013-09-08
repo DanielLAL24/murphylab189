@@ -14,10 +14,12 @@ else
 	disp(['Folder imgloc:''' imgloc ''' found.'])	
 end
 
-protim3 = ml_loadimage([imgloc '/3D/Tub/cell' num2str(cellnum) '/prot/'],'tif');
-dnaim3 = ml_loadimage([imgloc '/3D/Tub/cell' num2str(cellnum) '/dna/'],'tif');
-cellim3 = ml_loadimage([imgloc '/3D/Tub/cell' num2str(cellnum) '/cell/'],'tif');
-mask = ml_loadimage([imgloc '/3D/Tub/cell' num2str(cellnum) '/crop/'],'tif');
+%icaoberg 9/8/2013
+%updated location to match the downloaded tarball from masterscript
+protim3 = ml_loadimage([imgloc '/Tub/cell' num2str(cellnum) '/prot/'],'tif');
+dnaim3 = ml_loadimage([imgloc '/Tub/cell' num2str(cellnum) '/dna/'],'tif');
+cellim3 = ml_loadimage([imgloc '/Tub/cell' num2str(cellnum) '/cell/'],'tif');
+mask = ml_loadimage([imgloc '/Tub/cell' num2str(cellnum) '/crop/'],'tif');
 
 protim3 = tz_maskimg_3d(protim3,mask);
 dnaim3 = tz_maskimg_3d(dnaim3,mask);
