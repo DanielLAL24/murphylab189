@@ -41,6 +41,9 @@ mkdir ./images
 mv CellLines*.tar.gz ./images
 cd ./images
 
+wget -nc http://murphylab.web.cmu.edu/data/Hela/3D/3DHela_Tub.tgz
+tar -xzvf 3DHela_Tub.tgz
+
 for FILE in *rawdata*.tar.gz
 do
  tar -xzvf "$FILE"
