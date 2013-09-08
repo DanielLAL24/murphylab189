@@ -38,7 +38,6 @@ if ~exist('imgpath','var')
    imgpath = [ pwd filesep 'images' ];  % use the default image path(es) in images/
 end
 
-
 %clear all
 %close all
 
@@ -51,10 +50,26 @@ for Idx = celllineIdx(:)'
 if Idx == 0
 % 3D HeLa, generate microtubules and estimate model parameters using directly 3D HeLa cells
 cd HeLa3D
+disp( 'Preprocessing 3D HeLa images')
+tic
 raw2proc_hela_script  % preprocess images
+toc
+
+disp( 'Segmenting images')
+tic
 auto_segment_hela_script  % segment images into cells
+toc
+
+disp( 'Preprocess cells to get cell geometries' )
+tic
 process_seg_hela_script  % preprocess cells to get cell geometries (cell shapes and nuclear shapes)
+toc
+
+disp('Estimate single microtubule intenstity')
+tic
 scriptx_new  % estimate single microtubule intensity
+toc
+
 all_script_script  % generate microtubule distributions
 extract_features_script  % extract features for generated synthetic cells
 getallcellsfeatvec  % extract features for real cells
