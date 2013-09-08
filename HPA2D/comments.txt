@@ -1,0 +1,8 @@
+jl, 10-24-2011
+index = 3
+#maybe should penalize more on the 'df' when calculating 'cvScore' in 'spam = function(x, y, h, lambda, maxIter, epsilon)'
+1_1_1_simulate_allfeatures2_w7.mat_SpAM_CV.Rdata
+1_2_1_simulate_allfeatures2_w7.mat_SpAM_CV.Rdata
+1_4_1_simulate_allfeatures2_w7.mat_SpAM_CV.Rdata
+1_5_1_simulate_allfeatures2_w7.mat_SpAM_CV.Rdata
+

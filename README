@@ -1,0 +1,60 @@
+The software and intermediate results used for the following paper can be downloaded below:
+
+    Jieyue Li, Aabid Shariff, Mikaela Wiking, Emma Lundberg, Gustavo K. Rohde and Robert F. Murphy. Estimating microtubule distributions from 2D immunofluorescence microscopy images reveals differences among human cultured cell lines. PLoS ONE (2012). 
+
+
+Recreating Results from Raw Image Data
+
+    To recreate the results from the article from raw image data, i.e. the figures and tables, download the source code and data from the above links to this directory.
+
+    Expand the source code in this directory, by e.g.:
+    tar -xzf CellLines_Code.tar.gz
+    
+    Expand the raw HPA data (you may choose one or all cell lines) in images/HPA/images/IFconfocal/, by e.g.:
+    tar -xzf CellLines_rawdataHPA_A431.tar.gz
+    Expand the raw Hela data in images/Hela/3D/.
+    
+    In Matlab, run the main function - masterscript, e.g.
+    >> masterscript
+    See details in masterscript.m for more options of input image path and selection of cell line(s). 
+
+Recreating Results from Intermediate Results
+
+    1. To recreate the results from the article, i.e. the figures and tables, from intermediate results of segmented cell geometries (masks, cell and nuclear shapes) download the source code and intermediate results of segmented cell geometries from the above links.
+
+    Expand the source code in this directory, by e.g.:
+    tar -xzf CellLines_Code.tar.gz
+
+    Expand the intermediate results of segmented cell geometries also in this directory, by e.g.:
+    tar -xzf CellLines_MasksShapes.tar.gz
+
+    In Matlab, run the main function - masterscript, e.g.
+    >> masterscript
+    See details in masterscript.m for more options of input image path and selection of cell line(s). 
+
+    2. To recreate the results from the article, i.e. the figures and tables, from intermediate results of generated images and calculated features, download the source code and intermediate results of generated images and calculated features (you may choose one or more cell lines) from the above links.
+
+    Expand the source code in this directory, by e.g.:
+    tar -xzf CellLines_Code.tar.gz
+
+    Expand the intermediate results of generated images and calculated features in the desired directory, by e.g.:
+    cat CellLines_ImagesHPA_A431.tar.gz.part-* > CellLines_ImagesHPA_A431.tar.gz
+    tar -xzf CellLines_ImagesHPA_A431.tar.gz
+
+    In Matlab, run the main function, e.g.
+    >> masterscript
+    See details in masterscript.m for more options of input image path and selection of cell line(s). 
+
+    3. To recreate the results from the article, i.e. the figures and tables, from intermediate results of all estimated model parameters download the source code and intermediate results of all estimated model parameters from the above links.
+
+    Expand the source code in this directory, by e.g.:
+    tar -xzf CellLines_Code.tar.gz
+
+    Expand the intermediate results of all estimated model parameters also in this directory, by e.g.:
+    tar -xzf CellLines_Results.tar.gz
+
+    In Matlab, run the function - regenResults, e.g.
+    >> regenResults
+
+
+
