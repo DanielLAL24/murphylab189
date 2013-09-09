@@ -11,6 +11,7 @@ rand_starts = ((batchno-1)*100000)+randstarts;
 
 for thr = 6:8
 	for I = 1:size(n_inputArray,2)
-		mainScript10_hela_acute(n_inputArray(I),rand_starts(I),batchno,cellnum,subfolder,thr);
+		mainScript10_hela_acute( n_inputArray(I), rand_starts(I), batchno, ... 
+			cellnum, subfolder, thr );
 	end
 end
