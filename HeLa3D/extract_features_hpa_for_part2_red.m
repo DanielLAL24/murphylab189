@@ -42,7 +42,7 @@ if ~exist(tmpfile,'file')
         libpars = reducedlibrary(cellnum,subfolder);
         
         for I = 1:size(libpars,1)
-            disp( [ 'Library parts:' str2num(I) ])
+            disp( [ 'Library parts:' num2str(I) ])
             n = libpars(I,1);
             mu_len = libpars(I,2);
             sigma_len = libpars(I,3);
