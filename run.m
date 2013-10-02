@@ -33,14 +33,25 @@ raw_data_files_list;
 switch lower( option )
     case 'raw'
         disp( 'Recreating Results from Raw Image Data' );
+        
+        if ~exist( [ pwd filesep 'images' ] )
+            mkdir( [ pwd filesep 'images' ] );
+        end
+        
         for index=1:1:length( raw_data_files )
             file = raw_data_files{index};
             if ~exist( [ pwd filesep file ] );
                 disp( ['Downloading file: ' file ] );
-                urlwrite( [ website file ], file );
+                urlwrite( [ website file ], [ pwd filesep 'images' filesep file ] );
             else
                 disp( ['File ' file ' found on disk. Skipping download.'] );
             end
+        end
+        
+        cd( [ pwd filesep 'images' ] );
+        files = dir( [ pwd filesep '*.tar.gz' ] );
+        for index=1:1:length(files)
+            disp( ['Expanding: ' files{index}] );
         end
     case 'intermediate1'
         disp('Option 1: Recreate the results from the article (i.e. the figures and tables), from intermediate results of segmented cell geometries (masks, cell and nuclear shapes)');
