@@ -35,10 +35,11 @@ switch lower( option )
         for index=1:1:length( raw_data_files )
             file = raw_data_file{index};
             if ~exist( [ pwd filesep file ] );
-            disp( ['Downloading file: ' file ] );
-            urlwrite( [ website file ] );
-        else
-            disp( ['File ' file ' found on disk. Skipping download.'] );
+                disp( ['Downloading file: ' file ] );
+                urlwrite( [ website file ] );
+            else
+                disp( ['File ' file ' found on disk. Skipping download.'] );
+            end
         end
     otherwise
         disp( 'Unknown or unsupported option.');
