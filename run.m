@@ -51,7 +51,8 @@ switch lower( option )
         cd( [ pwd filesep 'images' ] );
         files = dir( [ pwd filesep '*.tar.gz' ] );
         for index=1:1:length(files)
-            disp( ['Expanding: ' files{index}] );
+            disp( ['Expanding: ' files(index).name] );
+            untar( [ pwd filesep files(index).name] );
         end
         cd ..
     case 'intermediate1'
