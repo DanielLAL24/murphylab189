@@ -29,11 +29,45 @@ if nargin == 0
     option = 'raw';
 end
 
+raw_data_files_list;
 switch lower( option )
     case 'raw'
-        raw_data_files_list;
+        disp( 'Recreating Results from Raw Image Data' );
         for index=1:1:length( raw_data_files )
             file = raw_data_files{index};
+            if ~exist( [ pwd filesep file ] );
+                disp( ['Downloading file: ' file ] );
+                urlwrite( [ website file ], file );
+            else
+                disp( ['File ' file ' found on disk. Skipping download.'] );
+            end
+        end
+    case 'intermediate1'
+        disp('Option 1: Recreate the results from the article (i.e. the figures and tables), from intermediate results of segmented cell geometries (masks, cell and nuclear shapes)');
+        for index=1:1:length( intermediate_data_files_option1 )
+            file = intermediate_data_files_option1{index};
+            if ~exist( [ pwd filesep file ] );
+                disp( ['Downloading file: ' file ] );
+                urlwrite( [ website file ], file );
+            else
+                disp( ['File ' file ' found on disk. Skipping download.'] );
+            end
+        end
+    case 'intermediate2'
+        disp('Option 2: Recreate the results from the article (i.e. the figures and tables), from intermediate results of generated images and calculated features');
+        for index=1:1:length( intermediate_data_files_option2 )
+            file = intermediate_data_files_option2{index};
+            if ~exist( [ pwd filesep file ] );
+                disp( ['Downloading file: ' file ] );
+                urlwrite( [ website file ], file );
+            else
+                disp( ['File ' file ' found on disk. Skipping download.'] );
+            end
+        end
+    case 'intermediate3'
+        disp('Option 3: Recreate the results from the article, i.e. the figures and tables, from intermediate results of all estimated model parameters');
+        for index=1:1:length( intermediate_data_files_option3 )
+            file = intermediate_data_files_option3{index};
             if ~exist( [ pwd filesep file ] );
                 disp( ['Downloading file: ' file ] );
                 urlwrite( [ website file ], file );
