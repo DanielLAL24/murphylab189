@@ -33,10 +33,10 @@ switch lower( option )
     case 'raw'
         raw_data_files_list;
         for index=1:1:length( raw_data_files )
-            file = raw_data_file{index};
+            file = raw_data_files{index};
             if ~exist( [ pwd filesep file ] );
                 disp( ['Downloading file: ' file ] );
-                urlwrite( [ website file ] );
+                urlwrite( [ website file ], file );
             else
                 disp( ['File ' file ' found on disk. Skipping download.'] );
             end
