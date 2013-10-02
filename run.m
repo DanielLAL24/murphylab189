@@ -65,6 +65,8 @@ switch lower( option )
             else
                 disp( ['File ' file ' found on disk. Skipping download.'] );
             end
+            
+            untar( [ pwd filesep file ] );
         end
     case 'intermediate2'
         disp('Option 2: Recreate the results from the article (i.e. the figures and tables), from intermediate results of generated images and calculated features');
