@@ -41,4 +41,5 @@ switch lower( option )
             disp( ['File ' file ' found on disk. Skipping download.'] );
         end
     otherwise
+        disp( 'Unknown or unsupported option.');
 end
