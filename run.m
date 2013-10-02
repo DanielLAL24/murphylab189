@@ -40,7 +40,7 @@ switch lower( option )
         
         for index=1:1:length( raw_data_files )
             file = raw_data_files{index};
-            if ~exist( [ pwd filesep file ] );
+            if ~exist( [ pwd filesep 'images' filesep file ] );
                 disp( ['Downloading file: ' file ] );
                 urlwrite( [ website file ], [ pwd filesep 'images' filesep file ] );
             else
@@ -48,11 +48,13 @@ switch lower( option )
             end
         end
         
+        movefile
         cd( [ pwd filesep 'images' ] );
         files = dir( [ pwd filesep '*.tar.gz' ] );
         for index=1:1:length(files)
             disp( ['Expanding: ' files{index}] );
         end
+        cd ..
     case 'intermediate1'
         disp('Option 1: Recreate the results from the article (i.e. the figures and tables), from intermediate results of segmented cell geometries (masks, cell and nuclear shapes)');
         for index=1:1:length( intermediate_data_files_option1 )
