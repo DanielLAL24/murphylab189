@@ -48,7 +48,6 @@ switch lower( option )
             end
         end
         
-        movefile
         cd( [ pwd filesep 'images' ] );
         files = dir( [ pwd filesep '*.tar.gz' ] );
         for index=1:1:length(files)
