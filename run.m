@@ -78,6 +78,12 @@ switch lower( option )
             else
                 disp( ['File ' file ' found on disk. Skipping download.'] );
             end
+            
+            for index=1:1:length(synthetic_images_tarballs)
+                file = synthetic_images_tarballs{index};
+                disp( ['Concatenating file ' file ] );
+                system( [ 'cat ' file '.part-a*>' file ] );
+            end
         end
     case 'intermediate3'
         disp('Option 3: Recreate the results from the article, i.e. the figures and tables, from intermediate results of all estimated model parameters');
