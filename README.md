@@ -43,6 +43,7 @@ To recreate the results from the article from intermediate results download the 
 
 For example, in Ubuntu, start Matlab and run
 
+```
 icaoberg@developers:~$ matlab
 Warning: No display specified.  You will not be able to display graphics on the screen.
 
@@ -56,9 +57,11 @@ To get started, type one of these: helpwin, helpdesk, or demo.
 For product information, visit www.mathworks.com.
  
 >> run()
+```
 
 or
 
+```
 icaoberg@developers:~$ matlab
 Warning: No display specified.  You will not be able to display graphics on the screen.
 
@@ -72,6 +75,7 @@ To get started, type one of these: helpwin, helpdesk, or demo.
 For product information, visit www.mathworks.com.
  
 >> run('scratch')
+```
 
 Recreating Results from Intermediate Results
 ---------------------------------------------
@@ -80,6 +84,7 @@ To recreate the results from the article from intermediate results download the 
 
 For example, in Ubuntu, start Matlab and run
 
+```
 icaoberg@developers:~$ matlab
 Warning: No display specified.  You will not be able to display graphics on the screen.
 
@@ -93,5 +98,6 @@ To get started, type one of these: helpwin, helpdesk, or demo.
 For product information, visit www.mathworks.com.
  
 >> run('intermediate')
+```
 
 
