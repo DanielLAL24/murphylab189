@@ -11,8 +11,8 @@ http://murphylab.web.cmu.edu/software/2012_PLoS_ONE_Microtubule_Models/
 To download the original papaer, please visit
 http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0050292
 
-Downlading the Source Code
-==========================
+## Downlading the Source Code
+
 
 You can download the latest stable copy of the source code from
 
@@ -35,9 +35,10 @@ cd murphyabl189
 
 Comments: the first stable version of the source was tested in CentOS using Matlab 2007a. Older versions of the source code might not run in newer versions of Matlab.
 
+## Usage 
 
-Recreating Results from Raw Image Data
-======================================
+### Recreating Results from Raw Image Data
+
 
 To recreate the results from the article from intermediate results download the source code and use the run.m script to generate the results.
 
@@ -77,8 +78,7 @@ For product information, visit www.mathworks.com.
 >> run('scratch')
 ```
 
-Recreating Results from Intermediate Results
-============================================
+### Recreating Results from Intermediate Results
 
 To recreate the results from the article from intermediate results download the source code and use the run.m script to generate the results.
 
