@@ -37,7 +37,7 @@ Comments: the first stable version of the source was tested in CentOS using Matl
 
 
 Recreating Results from Raw Image Data
---------------------------------------
+======================================
 
 To recreate the results from the article from intermediate results download the source code and use the run.m script to generate the results.
 
@@ -78,7 +78,7 @@ For product information, visit www.mathworks.com.
 ```
 
 Recreating Results from Intermediate Results
----------------------------------------------
+============================================
 
 To recreate the results from the article from intermediate results download the source code and use the run.m script to generate the results.
 
